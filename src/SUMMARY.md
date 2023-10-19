@@ -6,10 +6,6 @@
 
 - [Purpose](./application/purpose.md)
 - [Features](./application/features.md)
-    - [Workout Specification]()
-    - [Workout Progression]()
-    - [Workout Statistics]()
-    - [Performance Overview]()
 
 # Interaction
 
