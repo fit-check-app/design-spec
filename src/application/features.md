@@ -23,12 +23,12 @@ Specifying a clothing item in wardrobe management software involves creating a d
 
 The state of a clothing item depends on its availability and its feasability to be worn currently. Valid states include:
 
-- Ready -> Can be pulled out of wardrobe/closet and worn today
-- In storage -> Stashed away (maybe out of season)
-- Needs cleaning -> Previously worn and/or soiled. Usually indicates item is in the laundry pile, but could stand in for needed to take it to the dry cleaners or something similar.
-- Needs repair -> Item is damaged, but can be repaired.
-- To be discarded -> Item is damaged beyond repair or has outlived its usefulness
-- To be donated -> Item may have outlived its usefulness, but might still be usable.
+- Ready: Can be pulled out of wardrobe/closet and worn today
+- In storage: Stashed away (maybe out of season)
+- Needs cleaning: Previously worn and/or soiled. Usually indicates item is in the laundry pile, but could stand in for needed to take it to the dry cleaners or something similar.
+- Needs repair: Item is damaged, but can be repaired.
+- To be discarded: Item is damaged beyond repair or has outlived its usefulness
+- To be donated: Item may have outlived its usefulness, but might still be usable.
 
 ## Outfit specification
 

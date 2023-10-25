@@ -11,7 +11,7 @@ This app aims to help users track their workouts and see the progress overtime. 
 - Clothing item specification
 - Clothing item state
 - Outfit specification
-- Outfit generation
+- Outfit generation?
 
 The finer details of these features have yet to be refined. Any additional features have not yet been discussed
 
