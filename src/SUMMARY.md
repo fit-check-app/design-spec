@@ -9,6 +9,9 @@
 
 # Interaction
 
+- [Managing clothing items](./interaction/clothing-item-management.md)
+- [Managing outfits](./interaction/outfit-management.md)
+
 # Architecture
 
 # Implementation
