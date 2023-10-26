@@ -88,3 +88,5 @@
 ## Deleting a clothing item
 
 ## Clothing item FSM
+
+![Clothing State Machine](./figures/clothing-state.drawio.svg)
