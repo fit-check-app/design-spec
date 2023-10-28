@@ -140,10 +140,24 @@
 
 ### Quick actions
 
+- Wear today: sets the last worn date to today (only available if status if "Ready")
+- Washed today: sets the status of the item to "Ready" (only availabe is item is awaiting cleaning)
+
 ### Revise item record
 
-### Wireframe
+- Floating action button to edit an existing clothing record from its **detailed view**
+- All fields shown, even if not defined
+- Image is updated by tapping/clicking on current image
+
+### Wireframes
+
+![Update Item Mockup](./figures/update-item-mockup.drawio.svg)
 
 ## Deleting a clothing item
+
+1) Tap/click on the red "delete" button in the **detailed view**
+2) Confirm deletion if it is OK to delete (Item cannot be deleted if part of an outfit)
+
+![Delete Item Mockup](./figures/delete-item-mockup.drawio.svg)
 
 ## Clothing item FSM
