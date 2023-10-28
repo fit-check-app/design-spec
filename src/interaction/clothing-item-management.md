@@ -103,11 +103,46 @@
 
 ### Wireframe
 
-![Create Item Mockup](./figures/create-item.drawio.svg)
+![Create Item Mockup](./figures/create-item-mockup.drawio.svg)
 
 ## Viewing a clothing item
 
+### Searchability
+
+- By name (default)
+- By tags
+    - `tagkey:tagvalue` (category:tops)
+    - Can be multiple tags listed
+    - Any known attribute can be a tag key
+    - Tag modifiers
+        - is: exact match: `name:is:red shirt` searches for a clothing item that is named "red shirt"
+        - like: fuzzy match: `name:like:red` search for clothing items that contain the string "red"
+        - not: opposing match: `name:not:like:red` searches for clothing items that **do not** contain the string "red"
+        - absence of modifier defaults to fuzzy
+
+### Results
+
+- Wardrobe inventory listed alphabetically by name (default view)
+- Search bar filters for desired items
+- Overview
+    - Picture
+    - Name
+    - Last worn
+    - Availability
+- Detailed (Overview +)
+    - Any other details provided
+
+### Wireframes
+
+![View Item Mockup](./figures/view-item-mockup.drawio.svg)
+
 ## Updating a clothing item
+
+### Quick actions
+
+### Revise item record
+
+### Wireframe
 
 ## Deleting a clothing item
 
