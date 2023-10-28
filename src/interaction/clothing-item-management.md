@@ -81,6 +81,30 @@
 
 ## Creating a clothing item
 
+### Required information 
+
+- Item name 
+- Item category
+- Item last worn date
+- Item image *or* item color
+- Item availability state
+
+### Additional information
+
+- Item brand
+- Item purchase date
+- Item price
+- Item fabric
+- Item size
+- Color
+- Occasions tags
+- Seasonal tags
+- Aditional notes
+
+### Wireframe
+
+![Create Item Mockup](./figures/create-item.drawio.svg)
+
 ## Viewing a clothing item
 
 ## Updating a clothing item
