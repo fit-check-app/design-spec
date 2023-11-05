@@ -14,4 +14,8 @@
 
 # Architecture
 
+- [Frontend overview](./architecture/frontend.md)
+- [Backend overview](./architecture/backend.md)
+- [Data overview](./architecture/data-models.md)
+
 # Implementation
