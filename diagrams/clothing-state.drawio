@@ -1,0 +1,111 @@
+<mxfile host="Electron" modified="2023-10-26T04:27:59.056Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="oHfz9qKcBOM7mFvD2FvC" version="22.0.3" type="device">
+  <diagram name="Page-1" id="HHybLlBfsA5Jkow2-ZTh">
+    <mxGraphModel dx="1114" dy="878" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="uIYp_vSx8CLlGtCrwMXP-1" target="uIYp_vSx8CLlGtCrwMXP-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-7" value="Out of season/style" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uIYp_vSx8CLlGtCrwMXP-6">
+          <mxGeometry x="-0.1816" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-8" value="Worn or soiled" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="uIYp_vSx8CLlGtCrwMXP-1" target="uIYp_vSx8CLlGtCrwMXP-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="140" />
+              <mxPoint x="320" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="uIYp_vSx8CLlGtCrwMXP-1" target="uIYp_vSx8CLlGtCrwMXP-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-10" value="Damaged" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uIYp_vSx8CLlGtCrwMXP-9">
+          <mxGeometry x="0.2516" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-1" value="Ready" style="ellipse;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="365" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uIYp_vSx8CLlGtCrwMXP-2" target="uIYp_vSx8CLlGtCrwMXP-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-12" value="Stored away for extended time" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uIYp_vSx8CLlGtCrwMXP-11">
+          <mxGeometry x="0.2417" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uIYp_vSx8CLlGtCrwMXP-2" target="uIYp_vSx8CLlGtCrwMXP-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="350" />
+              <mxPoint x="230" y="128" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-20" value="In season" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uIYp_vSx8CLlGtCrwMXP-19">
+          <mxGeometry x="-0.0106" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-2" value="Stored away" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+          <mxGeometry x="80" y="310" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="uIYp_vSx8CLlGtCrwMXP-3" target="uIYp_vSx8CLlGtCrwMXP-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="505" y="430" />
+              <mxPoint x="505" y="265" />
+              <mxPoint x="425" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-18" value="Laundered" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uIYp_vSx8CLlGtCrwMXP-17">
+          <mxGeometry x="-0.3333" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-3" value="Needs cleaning" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+          <mxGeometry x="365" y="390" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uIYp_vSx8CLlGtCrwMXP-4" target="uIYp_vSx8CLlGtCrwMXP-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-15" value="Damaged beyond repair" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uIYp_vSx8CLlGtCrwMXP-14">
+          <mxGeometry x="0.3808" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="uIYp_vSx8CLlGtCrwMXP-4" target="uIYp_vSx8CLlGtCrwMXP-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="350" />
+              <mxPoint x="590" y="128" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-22" value="Successfully repaired" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uIYp_vSx8CLlGtCrwMXP-21">
+          <mxGeometry x="0.0546" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-4" value="Needs repair" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+          <mxGeometry x="680" y="310" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-5" value="Discard" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;" vertex="1" parent="1">
+          <mxGeometry x="360" y="610" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-13" value="&lt;h1&gt;Stored -&amp;gt; Discard&lt;/h1&gt;&lt;p&gt;A clothing item that is stored away for and extended amount of time should be considered obsolete. This time should be user configurable&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="670" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="uIYp_vSx8CLlGtCrwMXP-16" value="&lt;h1&gt;Repair -&amp;gt; Discard&lt;/h1&gt;&lt;p&gt;A clothing item that cannot be repaired (or is not worth repairing) should be discarded&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="670" width="210" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
