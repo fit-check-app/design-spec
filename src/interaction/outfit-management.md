@@ -47,6 +47,16 @@
 
 ## Creating an outfit
 
+- Outfits are created by dragging and dropping articles of clothing to appropriate slots
+- Slots only accepts clothing that is worn on that part of the body
+    1) Headwear 
+    2) Torso 
+    3) Legs
+    4) Footwear
+- Slots can be layered to express layering of clothing
+
+![Create Outfit mockup](./figures/create-outfit-mockup.drawio.svg)
+
 ## Viewing an outfit
 
 ## Updating an outfit
