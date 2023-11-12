@@ -59,9 +59,29 @@
 
 ## Viewing an outfit
 
+- Outfits can be viewed in a simple or detailed view 
+- Detailed viewing lays out the outfits components which options to modify
+- Simple views are carousels of the components and have a option to move to the detailed view
+
+![Detailed Outfit View](./figures/view-outfit-mockup.drawio.svg)
+
 ## Updating an outfit
+
+- Can be done from the detailed outfit view 
+- Has similar feel to creating an outfit 
+- Outfit user fields can be modified when saving changes
+- Outfit revision message is optional to show details in revision history
+
+![Modify Outfit](./figures/update-outfit-mockup.drawio.svg)
 
 ## Deleting an outfit
 
+- Can be done from the detailed outfit view
+- User must address confirmation message before deletion occurs
+
 ## Outfits as clothing items
+
+- Outfits can show up on wardrobe clothing item listing
+- They can be filtered and view just like regular clothing items
+- The simplified view has a carousel of the components instead of a single image
 
