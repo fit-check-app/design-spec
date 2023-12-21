@@ -19,3 +19,5 @@
 - [Data overview](./architecture/data-models.md)
 
 # Implementation
+
+- [Backend Class Diagrams](./implementation/backend-classes.md)
