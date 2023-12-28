@@ -20,4 +20,5 @@
 
 # Implementation
 
-- [Backend Class Diagrams](./implementation/backend-classes.md)
+- [Backend Diagrams](./implementation/backend-classes.md)
+- [Application Data Modeling](./implementation/data-models.md)

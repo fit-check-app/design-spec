@@ -105,3 +105,5 @@ Multiple enumerations are used to model certain data points. These include:
 - Clothing readiness states
 
 ### Application tooling
+
+
