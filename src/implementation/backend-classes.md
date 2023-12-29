@@ -117,15 +117,10 @@ Web controllers provide an index of the available resources from the API gateway
 
 ### Logical services
 
-#### User logic
-
-#### Wardrobe logic
+![Logical Services](./figures/app-tooling-service-logic.drawio.svg)
 
 ### Data interfaces
 
-#### DB logic
-
-#### Media server logic
-
+![Data Interfaces](./figures/app-tooling-data-interface.drawio.svg)
 
 
