@@ -99,3 +99,75 @@ Multiple enumerations are used to model certain data points. These include:
 - Clothing readiness states
 
 ## Document models
+
+### User document
+
+```yaml
+_id: UUID
+displayname: String
+avatar:
+  media_server: IP
+  resource: Path
+hashed_password: String
+closet_spaces: # 1 of more allowed with `default` always existing
+  - name: default
+    clothing: [ClothingID]
+  - name: custom space 1
+    clothing: [ClothingID]
+user_sizes:
+  - name: String
+user_fabrics:
+  <fabric_name>: # number fields must add up to 100%
+    - material: String
+      composition: number
+    - material: String
+      composition: number
+```
+
+### Clothing document
+
+```yaml
+_id: UUID
+name: String
+owner: UserID
+labels: # 0 or more allowed
+  <label-key>: <label-value>
+last_worn: datetime | null
+readiness: Available | Soiled | Stowed | Damaged | Discarded
+type: Item | Outfit
+```
+
+For clothing items, the following addition fields are included
+
+```yaml
+color: String
+brand: String | null
+size: String | UserSize 
+fabric: String | UserFabric
+purchase:
+  date: date
+  cost: number
+image:
+  media_server: IP
+  resource: Path
+useable_slots:
+  head: bool
+  torso: bool
+  legs: bool
+  feet: bool
+  hands: bool
+```
+
+For outfits, the following addition fields are included
+
+```yaml
+layers:
+  1: # Must ensure that type is `Item` here
+    head: ClothingID | null
+    torso: ClothingID | null
+    legs: ClothingID | null
+    feet: ClothingID | null
+    hands: ClothingID | null
+  2: 
+    ...
+```
