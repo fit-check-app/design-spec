@@ -98,7 +98,68 @@ Multiple enumerations are used to model certain data points. These include:
 - Clothing slots
 - Clothing readiness states
 
-## Document models
+## Data Schema
+
+### Image pointer
+
+```sql
+CREATE TABLE ImagePointer (
+  server VARCHAR(15)
+  resource VARCHAR(255)
+  PRIMARY KEY (server, resource)
+);
+```
+
+### Closet space
+
+```sql
+CREATE TABLE ClosetSpace (
+  id UUID PRIMARY Key,
+  name VARCHAR(255),
+  owner UUID,
+  FOREIGN KEY (owner) REFERENCES UserAccount(id)
+);
+```
+
+### Closet placement
+
+```sql
+CREATE TABLE ClosetPlacement (
+  closet_space UUID,
+  clothing_item UUID,
+  FOREIGN KEY (closet_space) REFERENCES ClosetSpace(id),
+  FOREIGN KEY (clothing_item) REFERENCES ClothingArticle(id)
+  PRIMARY KEY (closet_space, clothing_item)
+)
+```
+
+### Clothing article
+
+```sql
+CREATE TABLE ClothingArticle (
+  id UUID PRIMARY KEY,
+  name VARCHAR(255),
+  owner UUID,
+  last_worn DATE,
+  readiness ENUM('Available', 'Soiled', 'Stowed', 'Damaged', 'Discarded'),
+  FOREIGN KEY (owner) REFERENCES UserAccount(id),
+  
+)
+```
+
+#### Clothing item
+
+#### Outfit
+
+### User
+
+#### Profile
+
+#### Account
+
+#### Fabrics???
+
+#### Sizes???
 
 ### User document
 
