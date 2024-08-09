@@ -98,76 +98,183 @@ Multiple enumerations are used to model certain data points. These include:
 - Clothing slots
 - Clothing readiness states
 
-## Document models
+## Data Schema
 
-### User document
+![Data Schema](./figures/app-entity-schema.drawio.svg)
 
-```yaml
-_id: UUID
-displayname: String
-avatar:
-  media_server: IP
-  resource: Path
-hashed_password: String
-closet_spaces: # 1 of more allowed with `default` always existing
-  - name: default
-    clothing: [ClothingID]
-  - name: custom space 1
-    clothing: [ClothingID]
-user_sizes:
-  - name: String
-user_fabrics:
-  <fabric_name>: # number fields must add up to 100%
-    - material: String
-      composition: number
-    - material: String
-      composition: number
+### User table
+
+```sql
+CREATE TABLE UserAccounts (
+  user_id UUID PRIMARY KEY,
+  email VARCHAR(255) NOT NULL,
+  passwd VARCHAR(255) NOT NULL
+);
 ```
 
-### Clothing document
+### File resource table
 
-```yaml
-_id: UUID
-name: String
-owner: UserID
-labels: # 0 or more allowed
-  <label-key>: <label-value>
-last_worn: datetime | null
-readiness: Available | Soiled | Stowed | Damaged | Discarded
-type: Item | Outfit
+```sql
+CREATE TABLE FileResources (
+  file_id INT AUTO_INCREMENT PRIMARY KEY,
+  file_hostname VARCHAR(255) NOT NULL,
+  file_path VARCHAR(255) NOT NULL
+);
 ```
 
-For clothing items, the following addition fields are included
+### Profile table
 
-```yaml
-color: String
-brand: String | null
-size: String | UserSize 
-fabric: String | UserFabric
-purchase:
-  date: date
-  cost: number
-image:
-  media_server: IP
-  resource: Path
-useable_slots:
-  head: bool
-  torso: bool
-  legs: bool
-  feet: bool
-  hands: bool
+```sql
+CREATE TABLE UserProfiles (
+  profile_owner UUID PRIMARY KEY,
+  display_name VARCHAR(255) NOT NULL,
+  profile_image INT NOT NULL,
+  FOREIGN KEY (profile_owner) REFERENCES UserAccounts(user_id)
+    ON DELETE CASCADE
+  FOREIGN KEY (profile_image) REFERENCES FileResources(file_id)
+    ON DELETE SET NULL
+);
 ```
 
-For outfits, the following addition fields are included
+### Closet space table
 
-```yaml
-layers:
-  1: # Must ensure that type is `Item` here
-    head: ClothingID | null
-    torso: ClothingID | null
-    legs: ClothingID | null
-    feet: ClothingID | null
-    hands: ClothingID | null
-  2: 
-    ...
+```sql
+CREATE TABLE ClosetSpaces (
+  space_owner UUID NOT NULL,
+  space_name VARCHAR(64) NOT NULL,
+  PRIMARY KEY (space_owner, space_name),
+  FOREIGN KEY (space_owner) REFERENCES UserAccounts(user_id)
+    ON DELETE CASCADE
+)
+```
+
+### Custom sizes table
+
+```sql
+CREATE TABLE CustomSizes (
+  size_name VARCHAR(64),
+  defined_by UUID NOT NULL,
+  PRIMARY KEY(defined_by, size_name),
+  FOREIGN KEY (defined_by) REFERENCES UserAccounts(user_id)
+    ON DELETE CASCADE
+);
+```
+
+### Custom fabrics table
+
+```sql
+CREATE TABLE CustomFabrics (
+  fabric_name VARCHAR(64),
+  defined_by UUID NOT NULL,
+  PRIMARY KEY(defined_by, fabric_name)
+  FOREIGN KEY (defined_by) REFERENCES UserAccounts(user_id)
+    ON DELETE CASCADE
+)
+```
+
+### Fabric compositions table
+
+```sql
+CREATE TABLE FabricCompositions (
+  fabric_name VARCHAR(64),
+  defined_by UUID NOT NULL,
+  material_name VARCHAR(64) NOT NULL,
+  material_percentage INT NOT NULL CHECK (material_percentage > 0 AND material_percentage <= 100)
+  FOREIGN KEY (defined_by, fabric_name) REFERENCES CustomFabrics(defined_by, fabric_name)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+)
+```
+
+### Clothing states enumeration
+
+```sql
+CREATE TYPE ClothingStates AS ENUM ('AVAILABLE', 'SOILED', 'DAMAGED', 'STOWED', 'DISCARDED')
+```
+
+### Clothing articles tables
+
+```sql
+CREATE TABLE ClothingArticles (
+  owner UUID NOT NULL,
+  space_placement VARCHAR(64) NOT NULL,
+  name VARCHAR(64) NOT NULL,
+  state Clothingstates DEFAULT 'AVAILABLE',
+  last_worn DATE,
+  color VARCHAR(32),
+  brandname VARCHAR(64),
+  size VARCHAR(64),
+  fabric VARCHAR(64),
+  purchase_date DATE,
+  purchase_price DECIMAL(10, 2),
+  image INT,
+  covers_head BOOLEAN DEFAULT FALSE,
+  covers_torse BOOLEAN DEFAULT FALSE,
+  covers_legs BOOLEAN DEFAULT FALSE,
+  covers_feet BOOLEAN DEFAULT FALSE,
+  covers_hands BOOLEAN DEFAULT FALSE,
+  PRIMARY KEY (owner, space_placement, name),
+  FOREIGN KEY (owner, space_placement) REFERENCES ClosetSpaces(space_owner, space_name)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  FOREIGN KEY (owner, size) REFERENCES CustomSizes(defined_by, size_name)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE,
+  FOREIGN KEY (owner, fabric) REFERENCES CustomFabrics(defined_by, fabric_name)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE,
+  FOREIGN KEY (image) REFERENCES FileResources(file_id)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+);
+```
+### Clothing outfits table
+
+```sql
+CREATE TABLE Outfits (
+  owner UUID NOT NULL,
+  space_placement VARCHAR(64) NOT NULL,
+  name VARCHAR(64) NOT NULL,
+  state Clothingstates DEFAULT 'AVAILABLE',
+  last_worn DATE,
+  PRIMARY KEY (owner, space_placement, name),
+  FOREIGN KEY (owner, space_placement) REFERENCES ClosetSpaces(space_owner, space_name)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+```
+
+### Outfit layers table
+
+```sql
+CREATE TABLE OutfitLayers (
+  owner UUID NOT NULL,
+  space_placement VARCHAR(64) NOT NULL,
+  outfit_name VARCHAR(64) NOT NULL,
+  layer_index INT NOT NULL,
+  head_slot_name VARCHAR(64),
+  torse_slot_name VARCHAR(64),
+  legs_slot_name VARCHAR(64),
+  feet_slot_name VARCHAR(64),
+  hands_slot_name VARCHAR(64),
+  PRIMARY KEY (owner, space_placement, outfit_name, layer_index),
+  FOREIGN KEY (owner, space_placement) REFERENCES ClosetSpaces(space_owner, space_name),
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+  FOREIGN KEY (owner, space_placement, head_slot_name) REFERENCES ClothingArticles(owner, space_placement, name)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+  FOREIGN KEY (owner, space_placement, torse_slot_name) REFERENCES ClothingArticles(owner, space_placement, name)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+  FOREIGN KEY (owner, space_placement, legs_slot_name) REFERENCES ClothingArticles(owner, space_placement, name)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+  FOREIGN KEY (owner, space_placement, feet_slot_name) REFERENCES ClothingArticles(owner, space_placement, name)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+  FOREIGN KEY (owner, space_placement, hands_slot_name) REFERENCES ClothingArticles(owner, space_placement, name)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+);
 ```
