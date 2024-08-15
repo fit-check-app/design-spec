@@ -2,92 +2,98 @@
 
 ## Specification methods
 
-### 1) Item name
+1) **Item name**
 
 - Can be a regular text input field on a form.
-- Name uniqueness is not required, but would be nice to show similarly named items if available.
-- **Required** for all clothing items
+- Name uniqueness is dependant on the location of the item in the wardrobe
+  - A user can have multiple items with the same name, but they must be in different closet spaces
+  - A user cannot have multiple items with the same name in the same closet space
+- *Required* for all clothing items
 
-### 2) Category
+2) **Location**
 
-- Refers to the type of an clothing item
-- A dropdown menu will help ensure clothing items are grouped into a finite number of groups
-    - Tops
-    - Bottoms
-    - Dresses
-    - Footwear (socks/shoes)
-    - Sleepwear
-- May want to allow user's to specify their own
-    - Can sort be done through the tags/keyword system
+- Refers to the closet space where the item is stored
+- A drop down menu will help ensure clothing items are placed in valid locations
+  - Locations are user defined as a closet space
+- *Required* for all clothing items
 
-### 3) Color
+3) **Color**
 
-- Dropdown of color presets
 - Color refinement available through a color picker widget
+- **Optional** to provide a color; if not provided, color will not be a searchable attribute
 - *Nice to have*: determine the color based on image of clothing 
 
-### 4) Brand
+4) **Brand**
 
 - Simple regular text input field
-- Suggest existing brand names if available before creating a new one (with dropdown?)
+- Suggest existing brand names if available before creating a new one (with drop down?)
+- *Optional* to provide a brand name; absence of brand name will make the brand name not a searchable attribute
 
-### 5) Size
 
-- Simple text field
+5) **Size**
+
+- Drop down menu of sizes defined by the user
 - User should just use what is on the item's tag 
 
-### 6) Fabric
 
-- Simple text field
+6) **Fabric**
+
+- Drop down menu of fabrics defined by the user
 - User should just use what is on the item's tag
 
-### 7) Purchase date
+7) **Purchase date**
 
 - Date picker widget of some sort
 
-### 8) Price
+8) **Price**
 
 - Text field restricted to valid floating number
 - Need to consider localization
 
-### 9) Wear frequency
+9) **Wear frequency**
 
-- A datepicker widget of some sort
-- QoL: a "wear today" button of some sort to quickly indicate last worn date is *today*
+- A date picker widget of some sort
+- *Quality of life*: a "wear today" button of some sort to quickly indicate last worn date is *today*
 
-### 10) Occasions
-
-- A select all that apply for a clothing item
-- May be a section of tags 
-
-### 11) Seasons
-
-- Also select all that apply 
-- May be a section of tags
-
-### 12) Image 
+10) **Image**
 
 - Provided as a image file (obviously)
 - *Nice to have*: procedurally generate an image based on other provided attributes
     - Makes image optional, as it would be helpful for visualizing outfits
-    
-### 13) Notes
 
-- Free form text for any additional user provided information
+11) **Clothing state**
 
-### 14) Availability
+- A drop down menu of valid next states
+- The current state of the clothing item determines the available next states
+- **Required** for all clothing items to determine their availability
 
-- Dropdown of possible clothing states
+12) **Tags**
+
+- A series of two-column text fields
+  - Left column: tag key
+  - Right column: tag value
+- Tags keys are searchable attributes
+
+12) **Coverage**
+
+- A combination of checkboxes that determine the coverage of a clothing item
+- Coverage is measured in terms of how an item is worn
+  - A hat would have coverage of "head"
+  - A shirt would have coverage of "torso"
+  - A pair of socks would have coverage of "feet"
+  - A ball gown would have coverage of "head" *and* "torso"
+- **Required** for all clothing items to cover some part of the body
 
 ## Creating a clothing item
 
 ### Required information 
 
 - Item name 
-- Item category
+- Item placement
 - Item last worn date
-- Item image *or* item color
-- Item availability state
+- Item image
+- Item state
+- Item coverage
 
 ### Additional information
 
@@ -97,9 +103,7 @@
 - Item fabric
 - Item size
 - Color
-- Occasions tags
-- Seasonal tags
-- Aditional notes
+- Tags
 
 ### Wireframe
 
@@ -119,6 +123,8 @@
         - like: fuzzy match: `name:like:red` search for clothing items that contain the string "red"
         - not: opposing match: `name:not:like:red` searches for clothing items that **do not** contain the string "red"
         - absence of modifier defaults to fuzzy
+- Any attribute explicitly defined in the clothing item record
+- Combination can be conjunctive or disjunctive
 
 ### Results
 
@@ -141,7 +147,7 @@
 ### Quick actions
 
 - Wear today: sets the last worn date to today (only available if status if "Ready")
-- Washed today: sets the status of the item to "Ready" (only availabe is item is awaiting cleaning)
+- Washed today: sets the status of the item to "Ready" (only available is item is awaiting cleaning)
 
 ### Revise item record
 
