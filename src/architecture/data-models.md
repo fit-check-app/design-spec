@@ -1,40 +1,12 @@
 # Data architecture overview
 
-## Database choices
+## Database choice
 
-### SQL
-
-- MySQL: MySQL is open source and has a free Community Edition, which is widely used and suitable for many applications.
-- PostgreSQL: PostgreSQL is open source and released under a permissive open-source license. It is entirely free and often used for various applications.
-- SQLite: SQLite is in the public domain, and its source code is freely available. It is free for both personal and commercial use and often embedded in applications.
-- MariaDB: MariaDB, being an open-source fork of MySQL, is also free and open source. It offers a community version without licensing fees.
-
-### NoSQL
-
-- MongoDB:
-    - MongoDB is a widely used open-source NoSQL database known for its flexibility and scalability.
-    - It is a document-oriented database that stores data in BSON (Binary JSON) format.
-    - MongoDB Community Edition is free and open source, and it's suitable for many applications.
-- Cassandra:
-    - Apache Cassandra is a distributed NoSQL database designed for high availability and scalability.
-    - It is particularly well-suited for managing large amounts of data across multiple data centers.
-    - Cassandra is open source and free to use.
-- Redis:
-    - Redis is an open-source, in-memory key-value store often used for caching and real-time data processing.
-    - It supports a variety of data structures and is known for its high performance.
-    - Redis is available under the BSD license.
+The database choice for this project will be a SQL database. A tried and true technology, SQL databases will provide the necessary data structuring and querying capabilities for this project. The RDBMS of choice will be MySQL. As a popular open-source database, MySQL will most likely have the necessary driver packages needed to interact with the database form the chosen backend language.
 
 ## Blob storage choices
 
-- GitHub
-    - GitHub allows you to store code and data files in repositories. While primarily designed for version control, you can use GitHub to host and share files.
-    - May need to consult terms & conditions to verify proper use and inspect for setup difficulty
-- OpenStack Swift:
-    - OpenStack Swift is open-source object storage software. You can set up your own Swift instance or use a provider that offers Swift-based storage.
-    - Alleviates overhead of object storage 
-- Local directory
-    - Have the webservice simply save to a local directory
-    - In a containerized environment, mounts to volumes can help with ease of deployment and backups
+Since the project will be dealing with images, a blob storage solution will be needed. The choice of blob storage will be [MinIO](https://min.io). This is a great choice because it is an open-source cloud native object storage server. Since we may be looking at utilizing Kubernetes for the project, MinIO will slip right into the container orchestration system with ease. With its support for S3, it will be much easier to migrate to a cloud provider if the need arises.
 
 ## Security concerns
 

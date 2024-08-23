@@ -1,40 +1,34 @@
-# Frontend architecture overview
+# Front end architecture overview
 
 ## Programming language
 
-The candidate languages for the user facing application of this project are 
+The languages for the user facing application of this project are as follows:
 
-- JavaScript
+- HTML
+- CSS
 - TypeScript
 
-JavaScript offers the following advantages
+### HTML
 
-1) Dynamic Typing: JavaScript is dynamically typed, which means you don't need to explicitly declare variable types. Types are determined at runtime.
-2) Interpreted Language: JavaScript is an interpreted language that is executed in the browser or on a server using a JavaScript runtime (e.g., Node.js).
-3) Loose Typing: JavaScript is loosely typed, allowing you to perform implicit type conversions. This can lead to unexpected behavior in some cases.
-4) ECMAScript Standard: JavaScript follows the ECMAScript standard, with different versions (e.g., ES5, ES6, ES7, etc.) introducing new features and improvements over time.
-5) No Static Typing: JavaScript lacks static typing support, which can make it challenging to catch type-related errors during development.
-6) Large Ecosystem: JavaScript has a vast ecosystem of libraries, frameworks, and tools, making it a popular choice for web development.
+Since, the user facing application is intended to be a web application, using HTML is the natural choice. HTML is the standard markup language on the web. While it may not be used explicitly in the project, its roots are fundamental when utilizing other web technologies like JSX.
 
-TypeScript offers the following advantages
+### CSS
 
-1) Static Typing: TypeScript introduces static typing, allowing you to declare types for variables, function parameters, and return values. This helps catch type-related errors at compile time.
-2) Superset of JavaScript: TypeScript is a superset of JavaScript, meaning that any valid JavaScript code is also valid TypeScript code. You can gradually adopt TypeScript in existing projects.
-3) Compiled Language: TypeScript code is transpiled (compiled) into JavaScript, which can be executed in browsers or server-side environments. The transpiler enforces type checking and generates clean, readable JavaScript code.
-4) Strict Typing Rules: TypeScript enforces stricter typing rules, which can help prevent common programming errors and enhance code quality and maintainability.
-5) Improved Tooling: TypeScript comes with enhanced tooling, including code editors like Visual Studio Code, which provides features like autocompletion, error checking, and code navigation based on type information.
-6) Interfaces and Generics: TypeScript supports interfaces and generics, making it easier to define and work with complex data structures and reusable code components.
-7) IDE Support: TypeScript provides rich support for Integrated Development Environments (IDEs), making it easier to work with larger codebases and improving developer productivity.
+To help with application styling and responsiveness, CSS will be used. CSS is the standard language for adding style to web pages. Once again, it may not be used explicitly in the project since modern CSS alternatives like Tailwind CSS may abstract away details. Intimate knowledge of CSS will still be incredibly useful.
 
-## Frontend framework
+### TypeScript
 
-The anticpated web framework to use to build the user interface is [Vue](https://vuejs.org). Vue boasts the following advantages on the homepage
+TypeScript will be used to write the logic and interactivity of the web application. TypeScript is a superset of JavaScript that adds static typing to the language. This will help catch errors early and make the project more enjoyable to work on.
 
-- Approachable: Builds on top of standard HTML, CSS and JavaScript with intuitive API and world-class documentation.
-- Performant: Truly reactive, compiler-optimized rendering system that rarely requires manual optimization.
-- Versatile: A rich, incrementally adoptable ecosystem that scales between a library and a full-featured framework.
+## Frontend frameworks
 
-This framework seems to support TypeScript out of the box and can incorporate the npm ecosystem.
+### React
+
+React is a JavaScript library for building web interfaces. It is quite bare bones so it may be better to use a more feature rich framework like [Next.js](https://nextjs.org) or [Remix](https://remix.run). These frameworks will help with routing, data fetching, and components so that focus can be on the application itself.
+
+### Tailwind CSS
+
+Tailwind CSS is a utility-first CSS framework that helps style web pages without writing custom CSS. It is a great choice for rapid prototyping and development. It provides a lot of utility classes that can be used to style components and make responsive designs. The scope of the project should be defined well enough so that custom CSS is not needed.
 
 ## Breaking the UI into reusable components
 
@@ -57,7 +51,7 @@ This mostly consists of a screen title and a search bar as specified [here](../i
 
 ### Detailed item view
 
-> Section to be clearly separated and composed into a larger parent component
+- Section to be clearly separated and composed into a larger parent component
 
 #### Required section
 
