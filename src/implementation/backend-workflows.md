@@ -1,4 +1,4 @@
-# Backend Workflows
+# Back end Workflows
 
 ## Service workflows
 
@@ -21,82 +21,19 @@
 
 ### Messages
 
-Application components communicate with a message broker. A component can produce messages and consume messages. Message producers create messages that delegate out of scope work to other components. Message consumers receive messages in a first-in-first-out (FIFO) manner and act upon then accordingly. To facilitate asynchronous work, components are often both producers and consumers.
+Application components communicate via [protocol buffers](https://protobuf.dev). Each message is serialized and sent to the appropriate remote component. The receiving component de-serializes the message and acts upon it. Messages are defined using the `proto3` syntax. 
 
 #### API Gateway
 
-This component is a producer and a consumer. It produces messages from the HTTP requests that it validates and delegates to an appropriate logical component. It then awaits the response from the logical component. Individual requests are tracked with a tracing ID that is part of the message it sends and will match against the same tracing ID to obtain the correct response.
-
-Messages sent by the API gateway look like:
-
-```yaml
-request-id: <tracing ID>
-request-for: <Logic Service Name>
-request-from: API Gateway
-metadata:
-  request-timestamp: <timestamp>
-  source-ip: IP Address
-  authorization-required: <bool>
-payload:
-  requestHeaders: # 0 or more allowed
-    <http-header-name>: <http-header-value>
-  urlParams: # 0 or more allowed
-    <urlParamName>: <urlParamValue>
-  queryParams: # 0 or more allowed
-    <queryParamName>: <queryParamValue>
-  body: <body string>
-```
-
-Messages received by the API gateway look like:
-
-```yaml
-request-id: <tracing ID>
-request-for: <API Gateway>
-request-from: <Logic Service Name>
-metadata:
-  status: Success | Failure
-  message: null | Failure reason
-payload:
-  responseHeaders: # 0 or more allowed
-    <http-header-name>: <http-header-value>
-  body: <body string>
-```
+This component is the edge of the back end application. It receives HTTP requests and forwards them to the appropriate service pod. When the service pod responds to the remote procedure call, the API gateway sends the response back to the client.
 
 #### Service Pods
 
-These components are consumers and producers. They consume delegation requests from the API gateway and produce responses for the API gateway to answer with. They may also produce and consume intermediate messages for data access. For interactions with API gateway, the messages are identical to those above.
-
-Messages sent to a data management pod look like:
-
-```yaml
-request-id: <tracing ID>
-request-for: <Data Service Name>
-request-from: <Logic Service Name>
-action: <A String describing the data action>
-payload: <payload string required by action>
-```
-
-- To query a resource, specify the resource to query in the `action` field and any parameters (such as filter) in the `payload` field
-- To write a file to the media server, specify the action as `FileWrite` and include the encoded file data in the `payload` field
-
-Messages received from data management pods look like:
-
-```yaml
-request-id: <tracing ID>
-request-for: <Logic Service Name>
-request-from: <Data Service Name>
-metadata:
-  status: Success | Failure
-  message: null | Failure reason
-dataRequested: <serialized data string>
-```
-
-- For a DB query, `dataRequested` would be the query results
-- For a file retrieval, `dataRequested` would be the encoded file contents
+Service pods are the logical components of the application. They receive messages from the API gateway, process them, and return a response. Service pods may also send messages to other service pods or data management pods.
 
 #### Data Management Pods
 
-These components are producers and consumers. The messages that they utilize are identical to the ones above. These pods do **not** produce or consume intermediate messages. Instead, they communicate directly with the data source that they manage.
+These components are the interface between the application and the data store. Data management pods receive messages from service pods and interact with the data store to retrieve or store data. This type of pod may seem redundant, but it is necessary to abstract the data store from the service pods. This abstraction keeps the service pods stateless and allows for manageable scaling of the data stores if needed in the future. Additionally, should data stores need to be migrated, the data management pods can be updated without affecting the service pods.
 
 - A database interface pod would communicate directly with a database using the specific database wrapper
 - A media server interface pod would communicate directly with the file store using a supported protocol
