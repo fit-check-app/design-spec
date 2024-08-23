@@ -1,37 +1,32 @@
 # Purpose
 
+The "fit check" application intends to engage users in a more conscious approach to their wardrobe. By providing this digital platforms, users can make more informed decisions about their clothing choices, reduce clothing waste, and develop a more sustainable clothing collection.
+
 ## Organization
+
+The first step in managing your wardrobe is to organize it. This involves creating a digital catalog of your clothing items, complete with detailed descriptions and photos.
 
 ### Simplify outfit planning
 
-One of the primary benefits of wardrobe management software is the ability to plan outfits in advance. You can mix and match items in your virtual wardrobe to create outfits, helping you make the most of the clothes you already own and saving time when getting dressed.
+One of the primary benefits of having a digital catalog of your wardrobe is the ability to plan outfits in advance. The catalog allows users to see all their clothing items at a glance. The details of each item can be used to identify which pieces work well together, helping users create outfits for different occasions.
 
-Users shall be able to visually assemble outfits using a digital interface. This means you can see how different clothing items and accessories work together without physically trying them on. This is particularly useful when you want to experiment with different combinations and styles. By dragging and dropping pieces onto a digital mannequin or clothing grid, you can create outfits effortlessly.
+Users shall be able to visually assemble outfits using a digital interface. This means you can see how different clothing items and accessories work together without physically trying them on. This is particularly useful when you want to experiment with different combinations and styles. By dragging and dropping pieces onto a ~~digital mannequin or~~ clothing grid, you can create outfits effortlessly.
 
 Outfits can be named and tagged for a particular type of event (casual, professional, etc) and a season (i.e. winter) to ensure that the more relevant outfits and presented first. 
 
 ### Reduction of duplicate purchases
 
-Another benefit is to avoid buying duplicate or similar clothing items by providing a digital catalog of your wardrobe. With the software, you can create a comprehensive inventory of your clothing items. This catalog provides a clear and organized view of what you already own. It is also what will be available when currating outfits.
-
-Clothing items should be described by the following attributes
-
-- Type: (top, bottom, accessory, etc.)
-- Color
-- Tags (Optional): "professional" for a suit jacket or "casual" for t-shirt.
-- Photo (Optional): to visualize its real-world counterpart
+Another benefit is to avoid buying duplicate or similar clothing items. The catalog provides a clear and comprehensive inventory of items owned by the user. With this information available, users won't go to a store and accidentally by their fifth red t-shirt.
 
 Having a visual record of your clothing allows you to see exactly what you have in your wardrobe. This reduces the likelihood of accidentally purchasing the same item or a similar style that you already own. When you're considering a new clothing purchase, the software enables you to compare it with items in your existing collection. You can check for similarities in color, style, or functionality, ensuring that you're not duplicating something you already have.
 
-Over time, the accumulation of duplicate or unnecessary items can lead to wardrobe clutter. By curbing the purchase of items you already have, you can maintain a more organized and functional wardrobe. Reducing duplicate purchases not only benefits your finances but also contributes to a more sustainable approach to fashion. It lessens the demand for new clothing production and helps minimize the environmental footprint associated with fashion consumption.
+Over time, the accumulation of duplicate or unnecessary items can lead to wardrobe clutter. By curbing the purchase of duplicate items, users can save extra money. Reducing duplicate purchases not only benefits your finances but also contributes to a more sustainable approach to fashion. It lessens the demand for new clothing production and helps minimize the environmental footprint associated with fashion consumption.
 
 ### Wear frequency
 
-Tracking wear frequency can benefit both your own fashion statement and help avoid a cyclical statement. By tracking the wear frequency of your clothing, you can make more informed decisions about which items to keep, which to donate, and which to discard. If certain items are rarely worn, it may be a sign that they don't fit well, aren't your style, or aren't in good condition.
+Tracking wear frequency can benefit both your own fashion statement and help avoid making a cyclical statement. By tracking the wear frequency of your clothing, you can make more informed decisions about which items to keep, which to donate, and which to discard. If certain items are rarely worn, it may be a sign that they don't fit well, aren't your style, or aren't in good condition. On the other hand, items worn frequently could be a sign of stagnant style choices or a lack of variety in your wardrobe.
 
-Tracking when clothing items were last worn can help identify your favorite clothing pieces and those that get the most wear. This information can guide your future clothing purchases, allowing you to invest in similar styles or colors that you know you'll enjoy wearing. It also helps you declutter your wardrobe by identifying items that no longer serve a purpose. If something hasn't been worn in a long time, you can consider selling, donating, or repurposing it.
-
-A more conscious approach to your wardrobe, guided by wear frequency data, can help you avoid wearing the same clothing items or outfits everytime you do your laundry. For instance, knowing that you wore a red shirt twice last week may encourage you to pick a different color
+A more conscious approach to your wardrobe, guided by wear frequency data, can help you avoid wearing the same clothing items or outfits every time you do your laundry. For instance, knowing that you wore a red shirt twice last week may encourage you to pick a different color
 
 ## Data driven decisions
 
